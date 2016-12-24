@@ -28,6 +28,7 @@
 <!--    <script src="js/vue.drag-and-drop.js"></script> -->
   </head>
   <body>
+<div id="fun001-main">
     <div class="big-container">
       <div class="wrapper">
         <div class="wrapper_1"></div>
@@ -48,7 +49,7 @@
           </div>
         </header>
         <div class="body-container game">
-          <div id="fun001-main" class="container game-area">
+          <div class="container game-area">
             <section class="store">
               <fieldset class="case">
                 <legend></legend>
@@ -138,7 +139,7 @@
           <h2>完成任務成績</h2>
           <div class="desc-block">
             <div class="desc1">
-              <p><span class="sec-result">18.30</span> 秒</p>
+              <p><span class="sec-result">{{ timer }}</span> 秒</p>
               <div class="btn-block inline">
                 <a class="try-again" href="#">再玩一次</a>
               </div>
@@ -163,6 +164,7 @@
         </div>
       </div>
     </div>
+  </div>
 
 <script>
 $('#success').hide();
@@ -236,7 +238,7 @@ var vm = new Vue({
                 }
             }
             vm.totalSum();
-            if(vm.timer < 18 && vm.result_total == 1688){
+            if(vm.timer < 20 && vm.result_total == 1688){
                 $('#success').show('slow');
             }else{
                 $('#success').hide('slow');
@@ -266,7 +268,7 @@ function drop(ev){
     if(ev.target.nodeName == 'LI' && ev.target.children.length == 0){
         ev.target.appendChild(document.getElementById(data));
         vm.totalSum();
-        if(vm.timer < 18 && vm.result_total == 1688){
+        if(vm.timer < 20 && vm.result_total == 1688){
             $('#success').show('slow');
         }else{
             $('#success').hide('slow');
@@ -287,8 +289,8 @@ function drop(ev){
     function stopCount(){
         setTimeout("document.getElementById('time_counter').innerHTML=vm.timer",0);
         clearTimeout(t);
-        // 確認18秒內完成
-        if(vm.timer < 18 && vm.result_total == 1688){
+        // 確認20秒內完成
+        if(vm.timer < 20 && vm.result_total == 1688){
             openLbox('#finish');
         }
     }
