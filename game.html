@@ -108,7 +108,7 @@ src="https://www.facebook.com/tr?id=226106521124380&ev=PageView&noscript=1"
               </div>
               <div class="checkout">
                 <div class="dashboard">
-                  <div class="top"><i class="timer"></i><span id="time_counter" class="count">{{ timer }}</span> 秒</div>
+                  <div class="top"><i class="timer"></i><span id="time_counter" class="count">{{ timer.toFixed(2) }}</span> 秒</div>
                   <div class="middle">
                     <p class="title">目前累積金額達</p>
                     <p>NT$<span class="total-money"> {{ result_total }} </span>元</p>
@@ -156,7 +156,7 @@ src="https://www.facebook.com/tr?id=226106521124380&ev=PageView&noscript=1"
           <h2>完成任務成績</h2>
           <div class="desc-block">
             <div class="desc1">
-              <p class="sec-result"><span id="counter"></span> {{ timer }} 秒</p>
+              <p class="sec-result"><span id="counter"></span> {{ timer.toFixed(2) }} 秒</p>
               <div class="btn-block inline">
                 <a id="try-again" class="try-again close" href="#"  v-on:click="tryAgain">再玩一次</a>
               </div>
@@ -427,8 +427,8 @@ function drop(ev){
     var c=0;
     var t;
     function timedCount(){
-        vm.timer = vm.timer+1;
-        t=setTimeout("timedCount()",1000);
+        vm.timer = vm.timer+0.01;
+        t=setTimeout("timedCount()",10);
     }
 
     function stopCount(){
