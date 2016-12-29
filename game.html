@@ -25,7 +25,23 @@
     <script src="js/upgrade-remind.js" type="text/javascript"></script>
     <script src="js/site-light.js" type="text/javascript"></script>
     <script src="js/vue.min.js" type="text/javascript"></script>
-<!--    <script src="js/vue.drag-and-drop.js"></script> -->
+    <script type="application/javascript">(function(w,d,t,r,u){w[u]=w[u]||[];w[u].push({'projectId':'10000','properties':{'pixelId':'413100'}});var s=d.createElement(t);s.src=r;s.async=true;s.onload=s.onreadystatechange=function(){var y,rs=this.readyState,c=w[u];if(rs&&rs!="complete"&&rs!="loaded"){return}try{y=YAHOO.ywa.I13N.fireBeacon;w[u]=[];w[u].push=function(p){y([p])};y(c)}catch(e){}};var scr=d.getElementsByTagName(t)[0],par=scr.parentNode;par.insertBefore(s,scr)})(window,document,"script","https://s.yimg.com/wi/ytc.js","dotq");</script>
+    <!-- Facebook Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s){if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};if(!f._fbq)f._fbq=n;
+n.push=n;n.loaded=!0;n.version='2.0';n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];s.parentNode.insertBefore(t,s)}(window,
+document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init', '226106521124380');
+fbq('track', "PageView");
+fbq('track', 'Purchase', {value: '0.00', currency:'TWD'});</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=226106521124380&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Facebook Pixel Code -->
+
   </head>
   <body>
 <div id="fun001-main">
@@ -62,11 +78,11 @@
 
                       <div v-bind:id="item.pid" draggable="true" ondragstart="drag(event)" class="prod">
                           <div class="item">
-                              <img  v-bind:src="item.src" v-bind:alt="item.t1 + item.t2">
+                              <img v-bind:src="item.src" v-bind:alt="item.t1 + item.t2" class="prod_img">
                           </div>
                           <div class="sign">
                               <p class="t1">{{ item.t1 }}</p>
-                              <p class="t2">{{ item.t2}}</p>
+                              <p class="t2">{{ item.t2 }}</p>
                               <p class="nt">
                                   <span>NT$</span>
                                   <span class="money">{{ item.money }}</span>
@@ -95,18 +111,18 @@
                   <div class="top"><i class="timer"></i><span id="time_counter" class="count">{{ timer }}</span> 秒</div>
                   <div class="middle">
                     <p class="title">目前累積金額達</p>
-                    <p>NT$<span class="total-money">{{ result_total }}</span>元</p>
+                    <p>NT$<span class="total-money"> {{ result_total }} </span>元</p>
                   </div>
                   <div class="bottom">
                     <p>目標金額NT$<span class="target-money">1688</span>元</p>
                   </div>
                 </div>
                 <div class="exit">
-                  <a id="success" href="javascript: void(0)" class="submit" onClick="stopCount()" style="max-width:107px">完成<br>送出</a>
+                  <a id="success" href="javascript: void(0)" class="submit disabled" onClick="stopCount()">完成<br>送出</a>
                   <a href="game.html" class="reset" style="width:107px">重新開始</a>
                 </div>
               </div>
-              <p class="info">*本畫面商品資訊及購買流程僅為遊戲設計，欲了解實際商品詳情請至<a target="_target" href="#">永豐商店紅包網</a></p>
+              <p class="info">*本畫面商品資訊及購買流程僅為遊戲設計，欲了解實際商品詳情請至<a target="_target" href="https://order.yfyshop.com/funcashier">永豐商店紅包網</a></p>
             </section>
           </div>
         </div>
@@ -135,39 +151,60 @@
             <a href="#" class="close start-game" onClick="timedCount()">開始遊戲</a>
           </div>
         </div>
+
         <div id="finish" class="finish">
           <h2>完成任務成績</h2>
           <div class="desc-block">
             <div class="desc1">
-              <p><span class="sec-result">{{ timer }}</span> 秒</p>
+              <p class="sec-result"><span id="counter"></span> {{ timer }} 秒</p>
               <div class="btn-block inline">
-                <a class="try-again" href="#">再玩一次</a>
+                <a id="try-again" class="try-again close" href="#"  v-on:click="tryAgain">再玩一次</a>
               </div>
             </div>
             <div class="desc2">
-              <p>恭喜您~於<span class="red">20秒內</span>完成任務!</p>
-              <p>獲得「與型男大廚吳秉承一起做好菜」抽獎機會</p>
-              <p>【立即填寫資料參加抽獎】</p>
+              <p class="success">恭喜您~於<span class="red">20秒內</span>完成任務!</p>
+              <p class="fail">未於<span class="red">20秒內</span>完成任務!</p>
+              <p class="fail">繼續加油～歡迎再挑戰！</p>
+              <p class="success finishhide">獲得「與型男大廚吳秉承一起做好菜」抽獎機會</p>
+              <p class="success deepred note finishhide">【立即填寫資料參加抽獎】</p>
+              <p class="deepred note finishshow">【已完成資料送出參加抽獎】</p>
             </div>
             <div class="desc3">
-              <table>
-                <tbody>
-                  <tr>
-                    <th>我已是豐掌櫃會員</th>
-                    <td><input type="text"></td>
-                    <td><a href="#">立即加</a></td>
-                  </tr>
-                </tbody>
-              </table>
+              <div class="btn-block inline choose">
+                <a href="javascript:void(0)" class="already" v-on:click="clickIsMember">我已是豐掌櫃會員</a>
+                <a target="_blank" href="https://funcashier.sinopac.com/WebSite/Mobile/Pages/Account_RegisterChoose.aspx" class="signup">非豐掌櫃會員註冊去</a>
+              </div>
+              <div class="btn-block inline leave">
+                <ul>
+                  <li><p class="already-a-member">我已是豐掌櫃會員</p></li>
+                  <li><input class="id-code" type="text" placeholder="身分證字號" v-model="twId"></li>
+                  <li class="captcha-block">
+                    <input class="txt-captcha" type="text" placeholder="輸入驗證碼" v-model="recap">
+                    <div class="captcha">
+                      <img src="images/captcha.png" alt="">
+                      <a class="recaptcha" href="#">重產驗證碼</a>
+                    </div>
+                  </li>
+                </ul>
+                <div class="btn-block">
+                  <a id="submit-data" href="javascript:void(0)" class="submit-data" v-on:click="confirmData">送出</a>
+                </div>
+              </div>
+              <div class="btn-block center share">
+                <a href="https://www.facebook.com/funcashier" class="share2fb">立馬分享至FB</a>
+                <a target="_blank" href="https://order.yfyshop.com/funcashier" class="rightnow">商品限量9折優惠 立刻搶購去</a>
+              </div>
             </div>
+            <p class="deepred note2 funnote">豐掌櫃會員(須完成email及手機驗證)完成購物快手任務始具抽獎資格</p> 
           </div>
+          <p class="notice">詳細辦法及豐掌櫃其他活動請至 <a href="https://bank.sinopac.com/MMA8/bank/fun/event/2016chef">活動專頁</a></p>
         </div>
+
       </div>
     </div>
   </div>
 
 <script>
-$('#success').hide();
 var vm = new Vue({
     el: '#fun001-main',
 
@@ -192,9 +229,57 @@ var vm = new Vue({
         result_total: 0,
         timer: 0,
         display: 'visibility:hidden',
+        twId: '',
+        recap: '',
     },
 
     methods: {
+        confirmData: function(obj) {
+        vm.twId = vm.twId.toUpperCase();
+//        alert(vm.checkTwId(vm.twId));
+        },
+
+
+        clickIsMember: function(obj) {
+            $(".choose.inline").hide();
+            $(".leave.inline").show();
+        },
+
+
+
+
+        checkTwId: function(userid) {
+            var reg=/^[A-Z]{1}[1-2]{1}[0-9]{8}$/;  //身份證的正規表示式
+            if( reg.test( userid ) ) {
+                var s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";  //把A取代成10,把B取代成11...的作法
+                var ct = ["10","11","12","13","14","15","16","17","34","18","19","20","21",
+                               "22","35","23","24","25","26","27","28","29","32","30","31","33"];
+            var i = s.indexOf(userid.charAt(0));
+            var tempuserid = ct[i] + userid.substr(1, 9); //若此身份證號若是A123456789=>10123456789
+            var num = tempuserid.charAt(0)*1;
+            for( i=1 ; i<=9 ; i++ ) {
+               num = num + tempuserid.charAt(i)*(10-i);
+            }
+            num += tempuserid.charAt(10)*1;
+ 
+                if( (num%10)==0 ) {
+                   return true;
+                }
+                else {
+                   return false;
+                }
+             }
+             else {
+                return false;
+            }
+        },
+
+
+
+        tryAgain: function() {
+            location.reload();
+        },
+
         totalSum: function (obj) {
             r01Price = 0;
             r02Price = 0;
@@ -238,10 +323,10 @@ var vm = new Vue({
                 }
             }
             vm.totalSum();
-            if(vm.timer < 20 && vm.result_total == 1688){
-                $('#success').show('slow');
+            if(vm.result_total == 1688){
+                $('#success').attr("class", "submit");
             }else{
-                $('#success').hide('slow');
+                $('#success').attr("class", "submit disabled");
             }
         },
     },
@@ -257,21 +342,24 @@ function allowDrop(ev){
 }
 
 function drag(ev){
-    ev.dataTransfer.setData("Text",ev.target.id);
+    if(ev.target.className == "prod_img"){
+        ev.dataTransfer.setData("text",ev.target.parentNode.parentNode.id);
+    }else{
+        ev.dataTransfer.setData("text",ev.target.id);
+    }
 }
 
 function drop(ev){
     ev.preventDefault();
-    var data=ev.dataTransfer.getData("Text");
-
+    var data=ev.dataTransfer.getData("text");
     // 檢查裏面是否已有物品
     if(ev.target.nodeName == 'LI' && ev.target.children.length == 0){
         ev.target.appendChild(document.getElementById(data));
         vm.totalSum();
-        if(vm.timer < 20 && vm.result_total == 1688){
-            $('#success').show('slow');
+        if(vm.result_total == 1688){
+            $('#success').attr("class", "submit");
         }else{
-            $('#success').hide('slow');
+            $('#success').attr("class", "submit disabled");
         }
     }
 }
@@ -290,8 +378,16 @@ function drop(ev){
         setTimeout("document.getElementById('time_counter').innerHTML=vm.timer",0);
         clearTimeout(t);
         // 確認20秒內完成
-        if(vm.timer < 20 && vm.result_total == 1688){
+        if(vm.result_total == 1688){
             openLbox('#finish');
+            if(vm.timer < 20){
+                $("#finish .fail").hide();
+            }else{
+                $("#finish .success").hide();
+                $("#finish .fail").show();
+                $(".share").show();
+                $(".choose").hide();
+            }
         }
     }
 
@@ -313,5 +409,42 @@ function drop(ev){
 
 </script>
 
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 876858061;
+var google_custom_params = window.google_tag_params;
+var google_remarketing_only = true;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//googleads.g.doubleclick.net/pagead/viewthroughconversion/876858061/?value=0&guid=ON&script=0"/>
+</div>
+</noscript>
+<!-- Google Code for 豐掌櫃_周年慶 Conversion Page -->
+<script type="text/javascript">
+/* <![CDATA[ */
+var google_conversion_id = 876860794;
+var google_conversion_language = "en";
+var google_conversion_format = "3";
+var google_conversion_color = "ffffff";
+var google_conversion_label = "zse1CJ7A0WkQ-qqPogM";
+var google_remarketing_only = false;
+/* ]]> */
+</script>
+<script type="text/javascript" src="//www.googleadservices.com/pagead/conversion.js">
+</script>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/876860794/?label=zse1CJ7A0WkQ-qqPogM&guid=ON&script=0"/>
+</div>
+</noscript>
+<noscript>
+<div style="display:inline;">
+<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/876858061/?value=3000.00&currency_code=TWD&label=RANBCPSK6mgQzZWPogM&guid=ON&script=0"/>
+</div>
+</noscript>
   </body>
 </html>

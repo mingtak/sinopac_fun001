@@ -89,23 +89,37 @@ footer .copyright a { color: #ededed; margin-left: 48px; }
 
 .red { color: #f00; }
 
+.deepred { color: #cf1111; }
+
 .game { background: url(../images/wood-bg.jpg) repeat center center; }
 .game .container { padding-top: 2vw; }
+
+.index { background: #ffd5cf url(../images/bg.png) repeat center center; }
+.index header { background: transparent; }
+.index header .header-top { border-bottom: 0; }
+.index .wu { max-width: 100%; vertical-align: top; }
+.index .body-container .container { position: relative; }
+.index .caution { color: white; background: #cc3c3b; -moz-border-radius: 2px; -webkit-border-radius: 2px; border-radius: 2px; font-size: 1.5vw; padding: 0.5vw 0.7vw; position: absolute; right: 30vw; top: 32.6vw; }
+.index .signup2fun { display: block; color: transparent; width: 16.1vw; max-width: 161px; height: 7.4vw; max-height: 74px; background: url(../images/signup2fun.png) no-repeat center center; background-size: 100% 100%; position: absolute; left: 31vw; top: 37vw; }
+.index .gotoplay { display: block; color: transparent; width: 16.2vw; max-width: 162px; height: 7.5vw; max-height: 75px; background: url(../images/gotoplay.png) no-repeat center center; background-size: 100% 100%; position: absolute; left: 50vw; top: 37vw; }
+.index .findoutmore { display: block; color: #aa0e0f; font-size: 1.3vw; position: absolute; left: 33.5vw; top: 45vw; }
+.index .findoutmore::before { content: ""; display: inline-block; width: 1.4vw; max-width: 14px; height: 1.4vw; max-height: 14px; background: url(../images/findoutmore.svg) no-repeat center center; background-size: 100% 100%; position: relative; top: 2px; margin-right: 0.4vw; }
 
 .case { background: url(../images/case.png) no-repeat center bottom; background-size: 100% auto; }
 .case legend { display: block; background: url(../images/rooftop.png) no-repeat center center; height: 9vw; max-height: 90px; width: 100%; background-size: 100% auto; }
 
 .products { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-flex-wrap: wrap; flex-wrap: wrap; justify-content: center; padding-bottom: 4.3vw; }
-.products li { position: relative; width: 18.3vw; max-width: 183px; height: 19.7vw; max-height: 197px; background: url(../images/box.png) no-repeat center bottom; background-size: 100% auto; margin: 0 0.2vw 2.2vw; }
+.products li { position: relative; width: 18.3vw; max-width: 183px; height: 19.7vw; max-height: 197px; background: url(../images/box.png) no-repeat center bottom; background-size: 100% auto; margin: 0 0.2vw 2.2vw; cursor: pointer; }
 .products li img { max-width: 100%; vertical-align: top; }
 .products li .sign { position: absolute; bottom: 1vw; left: 2.2vw; right: 2.2vw; border: 2px solid white; background: #ca3333; color: white; line-height: 1; text-align: center; font-weight: bold; }
 .products li .sign .t1 { font-size: 1.6vw; line-height: 1.5; }
 .products li .sign .t2 { font-size: 1.4vw; }
 .products li .sign .nt { font-size: 1.4vw; color: #fff600; }
 .products li .sign .nt .money { font-size: 2.2vw; line-height: 1.2; }
+.products li.checked { visibility: hidden; }
 
 .checkout-table { background: url(../images/table.png) no-repeat center bottom; display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-flex-wrap: wrap; flex-wrap: wrap; -webkit-justify-content: center; justify-content: center; }
-.checkout-table .products { padding-bottom: 0; margin-right: 1vw; }
+.checkout-table .products { padding-bottom: 0; margin-right: 1vw; width: 47.5vw; max-width: 475px; -webkit-justify-content: flex-start; justify-content: flex-start; }
 .checkout-table .products li { position: relative; width: 14.6vw; height: 16.3vw; max-height: 163px; margin-left: 0.4vw; margin-right: 0.4vw; }
 .checkout-table .products li .remove { position: absolute; right: -0.6vw; display: block; width: 2.5vw; max-width: 25px; height: 2.5vw; max-height: 25px; background-color: #ca3333; -moz-border-radius: 100%; -webkit-border-radius: 100%; border-radius: 100%; }
 .checkout-table .products li .remove::before, .checkout-table .products li .remove::after { content: ""; display: block; width: 50%; height: 1px; background-color: white; position: absolute; left: 50%; margin-left: -25%; top: 50%; -moz-transform: rotate(45deg); -ms-transform: rotate(45deg); -webkit-transform: rotate(45deg); transform: rotate(45deg); }
@@ -129,27 +143,72 @@ footer .copyright a { color: #ededed; margin-left: 48px; }
 .checkout-table .checkout .exit { display: inline-block; vertical-align: bottom; }
 .checkout-table .checkout .exit a { display: block; color: white; font-weight: bold; }
 .checkout-table .checkout .exit .submit { background-color: #ca3333; font-size: 3.3vw; padding: 1vw 1.5vw; line-height: 1.2; }
+.checkout-table .checkout .exit .submit.disabled { color: #bbb; background: #888; }
 .checkout-table .checkout .exit .reset { background-color: #ed6a56; font-size: 1.8vw; line-height: 3; text-align: center; }
 
-.lboxed { width: 100%; max-width: 620px; margin-left: 1vw; margin-right: 1vw; background: rgba(255, 255, 255, 0.9); -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; }
+.lboxed { display: none; width: 100%; max-width: 620px; margin-left: 1vw; margin-right: 1vw; background: rgba(255, 255, 255, 0.9); -moz-border-radius: 10px; -webkit-border-radius: 10px; border-radius: 10px; }
 .lboxed .mission-readme { text-align: center; padding: 3vw; }
 .lboxed .mission-readme h2 { background: url(../images/mission.png) no-repeat center center; background-size: auto 100%; font-size: 6vw; color: transparent; }
 .lboxed .mission-readme .desc-block { font-size: 3vw; line-height: 2; padding: 3vw; font-weight: bold; }
 .lboxed .mission-readme .start-game { display: inline-block; color: transparent; background: url(../images/start.png) no-repeat center center; background-size: 100% auto; font-size: 9vw; }
 .lboxed .mission-readme .upper { font-size: 4.2vw; }
-.lboxed .finish { text-align: center; padding: 3vw; }
+.lboxed .finish { position: relative; text-align: center; padding: 3vw; }
+.lboxed .finish .notice { position: absolute; bottom: 1vw; left: 0; right: 0; font-size: 13px; }
+.lboxed .finish .notice a { color: #3b559f; text-decoration: underline; }
 .lboxed .finish h2 { background: url(../images/finished.png) no-repeat center center; background-size: auto 100%; font-size: 6vw; color: transparent; }
+.lboxed .finish .desc-block .desc1 { padding: 4vw 0 1vw; }
+.lboxed .finish .desc-block .desc2 { font-size: 18px; line-height: 1.5; }
+.lboxed .finish .desc-block .desc2 .note { line-height: 2; }
+.lboxed .finish .desc-block .desc2 .fail { display: none; }
+.lboxed .finish .desc-block .desc3 .leave, .lboxed .finish .desc-block .desc3 .share { display: none; }
+.lboxed .finish .desc-block .leave li { width: 24vw; max-width: 240px; margin: 0 auto; }
+.lboxed .finish .desc-block .already-a-member { display: block; margin: 0.8vw 0; text-align: left; }
+.lboxed .finish .desc-block .already-a-member::before { content: ""; display: inline-block; background: url(../images/checkup.png) no-repeat center center; background-size: 100% 100%; width: 2vw; max-width: 20px; height: 2vw; max-height: 20px; position: relative; top: -0.2vw; margin-right: 0.5vw; vertical-align: middle; }
+.lboxed .finish .desc-block .id-code, .lboxed .finish .desc-block .txt-captcha { padding: 0.7vw 1.2vw; font-size: 1.3vw; margin-bottom: 0.8vw; box-sizing: border-box; border: 1px solid black; }
+.lboxed .finish .desc-block .id-code { width: 100%; }
+.lboxed .finish .desc-block .txt-captcha { display: inline-block; vertical-align: top; width: 140px; max-width: 14vw; float: left; }
+.lboxed .finish .desc-block .captcha-block { white-space: nowrap; }
+.lboxed .finish .desc-block .captcha-block::after { content: ""; display: block; clear: both; }
+.lboxed .finish .desc-block .captcha { float: right; vertical-align: top; width: 9.1vw; max-width: 91px; white-space: initial; }
+.lboxed .finish .desc-block .captcha img { border: 1px solid black; }
+.lboxed .finish .desc-block .captcha .recaptcha { font-size: 1.3vw; color: #00f; }
+.lboxed .finish .desc-block .captcha .recaptcha::before { content: ""; display: inline-block; background: url(../images/reloadcaptcha.svg) no-repeat center center; background-size: 100% 100%; width: 1.5vw; height: 1.3vw; max-width: 15px; max-height: 13px; position: relative; top: 1px; }
+.lboxed .finish .desc-block .submit-data { display: block; color: transparent; background: url(../images/submit.png) no-repeat center center; background-size: 100% 100%; width: 11.1vw; max-width: 111px; height: 4.4vw; max-height: 44px; margin: 1.5vw auto 1vw; }
+.lboxed .finish .sec-result { font-size: 6vw; font-weight: bold; display: inline-block; padding-right: 1.5vw; }
+.lboxed .finish .btn-block.inline { display: inline-block; vertical-align: top; }
+.lboxed .finish .btn-block.center a { margin: 2vw auto; }
+
+i.reset { display: inline-block; width: 2.8vw; max-width: 28px; height: 2.8vw; max-height: 28px; background: url(../images/reset.svg) no-repeat center center; background-size: 100% 100%; position: relative; top: 0.5vw; }
+
+.finishshow { display: none; }
+
+.try-again { color: transparent; display: inline-block; width: 6vw; max-width: 60px; height: 6vw; max-height: 60px; background: url(../images/play-again.png) no-repeat center center; background-size: 100% 100%; }
+
+.already, .signup { display: inline-block; margin: 0 1vw; color: transparent; width: 16.8vw; max-width: 168px; height: 11.9vw; max-height: 119px; background: url(../images/already.png) no-repeat center center; background-size: 100% 100%; }
+
+.signup { background: url(../images/signup.png) no-repeat center center; background-size: 100% 100%; }
+
+.note2 { padding: 2vw 0; }
+
+.share2fb, .rightnow { color: transparent; display: block; width: 49vw; max-width: 490px; height: 6vw; max-height: 60px; background: url(../images/fb.png) no-repeat center center; background-size: 100% 100%; }
+
+.rightnow { background: url(../images/rightnow.png) no-repeat center center; background-size: 100% 100%; }
 
 .mobile-menu { display: none; }
 
-@media (min-width: 1001px) { .products { padding-bottom: 43px; }
+@media (min-width: 1001px) { .index .caution { font-size: 15px; padding: 5px 7px; right: 300px; top: 326px; }
+  .index .signup2fun { left: 310px; top: 370px; }
+  .index .gotoplay { left: 500px; top: 370px; }
+  .index .findoutmore { font-size: 13px; left: 335px; top: 450px; }
+  .index .findoutmore::before { margin-right: 4px; }
+  .products { padding-bottom: 43px; }
   .products li { margin-bottom: 22px; }
   .products li .sign { bottom: 10px; left: 22px; right: 22px; }
   .products li .sign .t1 { font-size: 16px; }
   .products li .sign .t2 { font-size: 14px; }
   .products li .sign .nt { font-size: 14px; }
   .products li .sign .nt .money { font-size: 22px; }
-  .checkout-table .products li { width: 146px; }
+  .checkout-table .products li { margin-left: 4px; margin-right: 4px; width: 146px; }
   .checkout-table .products li .sign .t1 { font-size: 12px; }
   .checkout-table .products li .sign .t2 { font-size: 11px; }
   .checkout-table .products li .sign .nt { font-size: 11px; }
@@ -164,11 +223,20 @@ footer .copyright a { color: #ededed; margin-left: 48px; }
   .checkout-table .checkout .dashboard .bottom .target-money { font-size: 29px; }
   .checkout-table .checkout .exit .submit { font-size: 33px; }
   .checkout-table .checkout .exit .reset { font-size: 18px; }
+  i.reset { top: 5px; }
+  .note2 { padding: 20px 0; }
+  .lboxed .lbox-block > div { display: none; }
   .lboxed .mission-readme h2 { font-size: 60px; }
   .lboxed .mission-readme .desc-block { font-size: 30px; }
   .lboxed .mission-readme .start-game { font-size: 90px; }
   .lboxed .mission-readme .upper { font-size: 42px; }
-  .lboxed .finish h2 { font-size: 60px; } }
+  .lboxed .finish h2 { font-size: 60px; }
+  .lboxed .finish .desc-block .desc1 { padding: 40px 0 10px; }
+  .lboxed .finish .desc-block .already-a-member { top: -2px; margin: 8px 0; }
+  .lboxed .finish .desc-block .id-code, .lboxed .finish .desc-block .txt-captcha { padding: 7px 12px; font-size: 13px; margin-bottom: 8px; }
+  .lboxed .finish .desc-block .captcha .recaptcha { font-size: 13px; }
+  .lboxed .finish .desc-block .submit-data { margin: 15px auto 10px; }
+  .lboxed .finish .sec-result { padding-right: 15px; font-size: 60px; } }
 @media (max-width: 640px) { .mobile-menu { display: block; }
   .mobile-menu header .header-top { -moz-box-shadow: inset -15px 0px 40px -35px black; -webkit-box-shadow: inset -15px 0px 40px -35px black; box-shadow: inset -15px 0px 40px -35px black; }
   header .left-pane { margin-left: 52px; }
