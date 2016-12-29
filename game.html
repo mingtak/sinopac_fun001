@@ -432,10 +432,10 @@ function drop(ev){
     }
 
     function stopCount(){
-        setTimeout("document.getElementById('time_counter').innerHTML=vm.timer",0);
-        clearTimeout(t);
         // 確認20秒內完成
         if(vm.result_total == 1688){
+            setTimeout("document.getElementById('time_counter').innerHTML=vm.timer.toFixed(2)",0);
+            clearTimeout(t);
             openLbox('#finish');
             if(vm.timer < 20){
                 $("#finish .fail").hide();
