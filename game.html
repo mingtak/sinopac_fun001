@@ -19,12 +19,12 @@
     <link href="css/jquery-ui.css" rel="stylesheet" type="text/css">
     <link href="css/site-light.css" rel="stylesheet" type="text/css">
     <link href="css/custom.css" rel="stylesheet" type="text/css">
-    <script src="js/jquery-latest.min.js" type="text/javascript"></script>
-    <script src="js/jquery-ui.js" type="text/javascript"></script>
-    <script src="js/jquery.lightbox_me.js" type="text/javascript"></script>
-    <script src="js/upgrade-remind.js" type="text/javascript"></script>
-    <script src="js/site-light.js" type="text/javascript"></script>
-    <script src="js/vue.min.js" type="text/javascript"></script>
+    <script src="js/jquery-latest.min.securejs" type="text/javascript"></script>
+    <script src="js/jquery-ui.securejs" type="text/javascript"></script>
+    <script src="js/jquery.lightbox_me.securejs" type="text/javascript"></script>
+    <script src="js/upgrade-remind.securejs" type="text/javascript"></script>
+    <script src="js/site-light.securejs" type="text/javascript"></script>
+    <script src="js/vue.min.securejs" type="text/javascript"></script>
     <script type="application/javascript">(function(w,d,t,r,u){w[u]=w[u]||[];w[u].push({'projectId':'10000','properties':{'pixelId':'413100'}});var s=d.createElement(t);s.src=r;s.async=true;s.onload=s.onreadystatechange=function(){var y,rs=this.readyState,c=w[u];if(rs&&rs!="complete"&&rs!="loaded"){return}try{y=YAHOO.ywa.I13N.fireBeacon;w[u]=[];w[u].push=function(p){y([p])};y(c)}catch(e){}};var scr=d.getElementsByTagName(t)[0],par=scr.parentNode;par.insertBefore(s,scr)})(window,document,"script","https://s.yimg.com/wi/ytc.js","dotq");</script>
 
     <!-- Facebook Pixel Code -->
@@ -123,7 +123,7 @@ src="https://www.facebook.com/tr?id=226106521124380&ev=PageView&noscript=1"
                   <a href="game.html" class="reset" style="width:107px">重新開始</a>
                 </div>
               </div>
-              <p class="info">*本畫面商品資訊及購買流程僅為遊戲設計，欲了解實際商品詳情請至<a target="_target" href="https://order.yfyshop.com/funcashier">永豐商店紅包網</a></p>
+              <p class="info">*本畫面商品資訊及購買流程僅為遊戲設計，欲了解實際商品詳情請至<a target="_blank" href="https://order.yfyshop.com/funcashier">永豐商店紅包網</a></p>
             </section>
           </div>
         </div>
@@ -181,9 +181,9 @@ src="https://www.facebook.com/tr?id=226106521124380&ev=PageView&noscript=1"
                   <li><input class="id-code" type="text" placeholder="身分證字號" v-model="twId"></li>
                   <li class="captcha-block">
                     <input class="txt-captcha" type="text" placeholder="輸入驗證碼" v-model="recap">
-                    <div class="captcha">
-                      <img src="images/captcha.png" alt="">
-                      <a class="recaptcha" href="#">重產驗證碼</a>
+                    <div class="captcha" id="captcha-img" v-on:click="reload_captcha">
+                      <img src="http://10.11.34.106/funap/CaptchaImage.ashx" alt="">
+                      <a class="recaptcha" href="javascript:void(0)">重產驗證碼</a>
                     </div>
                   </li>
                 </ul>
@@ -192,281 +192,20 @@ src="https://www.facebook.com/tr?id=226106521124380&ev=PageView&noscript=1"
                 </div>
               </div>
               <div class="btn-block center share">
-                <a href="https://www.facebook.com/funcashier" class="share2fb">立馬分享至FB</a>
+                <a href="javascript:void(0)" class="share2fb" v-on:click="share2fb">立馬分享至FB</a>
                 <a target="_blank" href="https://order.yfyshop.com/funcashier" class="rightnow">商品限量9折優惠 立刻搶購去</a>
               </div>
             </div>
             <p class="deepred note2 funnote">豐掌櫃會員(須完成email及手機驗證)完成購物快手任務始具抽獎資格</p> 
           </div>
-          <p class="notice">詳細辦法及豐掌櫃其他活動請至 <a href="https://bank.sinopac.com/MMA8/bank/fun/event/2016chef">活動專頁</a></p>
+          <p class="notice">詳細辦法及豐掌櫃其他活動請至 <a target="_blank" href="https://bank.sinopac.com/MMA8/bank/fun/event/2016chef">活動專頁</a></p>
         </div>
 
       </div>
     </div>
   </div>
 
-<script>
-var vm = new Vue({
-    el: '#fun001-main',
-
-    data: {
-//商品start
-        items: [
-           [
-{ pid:'P_01', t1:'普魯軾', t2:'經典歐式德國豬腳', money:640, src:'images/stuffs/經典歐式德國豬腳.png' },
-{ pid:'P_02', t1:'大連', t2:'廣式臘腸', money:320, src:'images/stuffs/廣式臘腸.png' },
-{ pid:'P_03', t1:'逸湘齋', t2:'佛跳牆', money:498, src:'images/stuffs/佛跳牆.png' },
-{ pid:'P_04', t1:'老林記', t2:'素茶鵝', money:100, src:'images/stuffs/素茶鵝.png' },
-{ pid:'P_05', t1:'快車肉乾', t2:'原味脆肉紙', money:190, src:'images/stuffs/原味脆肉紙.png' },
-{ pid:'P_06', t1:'南門牛羊肉店', t2:'羊肉爐', money:550, src:'images/stuffs/羊肉爐.png' },
-{ pid:'P_07', t1:'南門點心坊', t2:'紫米八寶飯', money:250, src:'images/stuffs/紫米八寶飯.png' },
-{ pid:'P_08', t1:'隆記', t2:'甘蔗燻雞', money:850, src:'images/stuffs/甘蔗燻雞.png' },
-{ pid:'P_09', t1:'萬有全', t2:'富貴雙方', money:240, src:'images/stuffs/富貴雙方.png' },
-{ pid:'P_10', t1:'合興', t2:'港式蘿蔔糕', money:200, src:'images/stuffs/港式蘿蔔糕.png' },
-          ],
-          [
-{ pid:'P_01', t1:'萬有全', t2:'富貴雙方', money:240, src:'images/stuffs/富貴雙方.png' },
-{ pid:'P_02', t1:'台灣好漁', t2:'挪威薄鹽鯖魚片', money:900, src:'images/stuffs/挪威薄鹽鯖魚片.png' },
-{ pid:'P_03', t1:'得意', t2:'得意廚紙', money:500, src:'images/stuffs/得意廚紙.png' },
-{ pid:'P_04', t1:'永豐餘生技', t2:'油蒜', money:150, src:'images/stuffs/油蒜.png' },
-{ pid:'P_05', t1:'普魯軾', t2:'經典歐式德國豬腳', money:640, src:'images/stuffs/經典歐式德國豬腳.png' },
-{ pid:'P_06', t1:'永豐餘生技', t2:'台灣正黑豬小排', money:240, src:'images/stuffs/台灣正黑豬小排.png' },
-{ pid:'P_07', t1:'永豐餘生技', t2:'有機原豆醬油', money:250, src:'images/stuffs/有機原豆醬油.png' },
-{ pid:'P_08', t1:'合興', t2:'港式蘿蔔糕', money:200, src:'images/stuffs/港式蘿蔔糕.png' },
-{ pid:'P_09', t1:'永豐餘生技', t2:'麵線', money:288, src:'images/stuffs/麵線.png' },
-{ pid:'P_10', t1:'大連', t2:'廣式臘腸', money:320, src:'images/stuffs/廣式臘腸.png' },
-          ],
-          [
-{ pid:'P_01', t1:'永豐餘生技', t2:'油蔥', money:150, src:'images/stuffs/油蔥.png' },
-{ pid:'P_02', t1:'玉尚園', t2:'芒果乾', money:240, src:'images/stuffs/芒果乾.png' },
-{ pid:'P_03', t1:'萬有全', t2:'富貴雙方', money:240, src:'images/stuffs/富貴雙方.png' },
-{ pid:'P_04', t1:'永豐餘生技', t2:'有機黑豆蔭油禮盒', money:688, src:'images/stuffs/有機黑豆蔭油禮盒.png' },
-{ pid:'P_05', t1:'永豐餘生技', t2:'台灣正黑豬小排', money:240, src:'images/stuffs/台灣正黑豬小排.png' },
-{ pid:'P_06', t1:'老林記', t2:'素茶鵝', money:150, src:'images/stuffs/素茶鵝.png' },
-{ pid:'P_07', t1:'隆記', t2:'甘蔗燻雞', money:850, src:'images/stuffs/甘蔗燻雞.png' },
-{ pid:'P_08', t1:'永豐餘生技', t2:'沙茶醬', money:150, src:'images/stuffs/沙茶醬.png' },
-{ pid:'P_09', t1:'普魯軾', t2:'經典歐式德國豬腳', money:450, src:'images/stuffs/經典歐式德國豬腳.png' },
-{ pid:'P_10', t1:'永豐餘生技', t2:'寬麵', money:85, src:'images/stuffs/寬麵.png' },
-          ],          
-          [
-{ pid:'P_01', t1:'永豐餘生技', t2:'有機黑豆蔭油膏', money:300, src:'images/stuffs/有機黑豆蔭油膏.png' },
-{ pid:'P_02', t1:'合興', t2:'港式蘿蔔糕', money:290, src:'images/stuffs/港式蘿蔔糕.png' },
-{ pid:'P_03', t1:'永豐餘生技', t2:'沙茶醬', money:150, src:'images/stuffs/沙茶醬.png' },
-{ pid:'P_04', t1:'永豐餘生技', t2:'寬麵', money:85, src:'images/stuffs/寬麵.png' },
-{ pid:'P_05', t1:'快車肉乾', t2:'原味脆肉紙', money:598, src:'images/stuffs/原味脆肉紙.png' },
-{ pid:'P_06', t1:'台灣好漁', t2:'七星鱸魚片', money:1520, src:'images/stuffs/七星鱸魚片.png' },
-{ pid:'P_07', t1:'逸湘齋', t2:'佛跳牆', money:490, src:'images/stuffs/佛跳牆.png' },
-{ pid:'P_08', t1:'玉尚園', t2:'芒果乾', money:240, src:'images/stuffs/芒果乾.png' },
-{ pid:'P_09', t1:'永豐餘生技', t2:'台灣正黑豬肉絲', money:800, src:'images/stuffs/台灣正黑豬肉絲.png' },
-{ pid:'P_10', t1:'南門牛羊肉店', t2:'羊肉爐', money:550, src:'images/stuffs/羊肉爐.png' },
-          ],
-          [
-{ pid:'P_01', t1:'南門點心坊', t2:'紫米八寶飯', money:258, src:'images/stuffs/紫米八寶飯.png' },
-{ pid:'P_02', t1:'台灣好漁', t2:'挪威薄鹽鯖魚片', money:900, src:'images/stuffs/挪威薄鹽鯖魚片.png' },
-{ pid:'P_03', t1:'老林記', t2:'素茶鵝', money:100, src:'images/stuffs/素茶鵝.png' },
-{ pid:'P_04', t1:'永豐餘生技', t2:'台灣正黑豬肉絲', money:90, src:'images/stuffs/台灣正黑豬肉絲.png' },
-{ pid:'P_05', t1:'台灣好漁', t2:'七星鱸魚片', money:1520, src:'images/stuffs/七星鱸魚片.png' },
-{ pid:'P_06', t1:'隆記', t2:'甘蔗燻雞', money:850, src:'images/stuffs/甘蔗燻雞.png' },
-{ pid:'P_07', t1:'永豐餘生技', t2:'麵線', money:85, src:'images/stuffs/麵線.png' },
-{ pid:'P_08', t1:'永豐餘生技', t2:'油蔥', money:550, src:'images/stuffs/油蔥.png' },
-{ pid:'P_09', t1:'永豐餘生技', t2:'有機黑豆蔭油禮盒', money:600, src:'images/stuffs/有機黑豆蔭油禮盒.png' },
-{ pid:'P_10', t1:'大連', t2:'廣式臘腸', money:880, src:'images/stuffs/廣式臘腸.png' },
-          ],
-        ],
-//商品end
-        r_area: [
-            { rid:'r01', },
-            { rid:'r02', },
-            { rid:'r03', },
-        ],
-        result_total: 0,
-        timer: 0,
-        display: 'visibility:hidden',
-        twId: '',
-        recap: '',
-        randInt: Math.floor(Math.random() * 10) % 5,
-        success: 'submit disabled',
-    },
-
-    methods: {
-        confirmData: function(obj) {
-            vm.twId = vm.twId.toUpperCase();
-            if(vm.checkTwId(vm.twId)){
-                // TODO: 傳回伺服器
-            }else{
-                alert('請輸入正確身份證號');
-            }
-        },
-
-
-        clickIsMember: function(obj) {
-            $(".choose.inline").hide();
-            $(".leave.inline").show();
-        },
-
-
-
-
-        checkTwId: function(userid) {
-            var reg=/^[A-Z]{1}[1-2]{1}[0-9]{8}$/;  //身份證的正規表示式
-            if( reg.test( userid ) ) {
-                var s = "ABCDEFGHIJKLMNOPQRSTUVWXYZ";  //把A取代成10,把B取代成11...的作法
-                var ct = ["10","11","12","13","14","15","16","17","34","18","19","20","21",
-                               "22","35","23","24","25","26","27","28","29","32","30","31","33"];
-            var i = s.indexOf(userid.charAt(0));
-            var tempuserid = ct[i] + userid.substr(1, 9); //若此身份證號若是A123456789=>10123456789
-            var num = tempuserid.charAt(0)*1;
-            for( i=1 ; i<=9 ; i++ ) {
-               num = num + tempuserid.charAt(i)*(10-i);
-            }
-            num += tempuserid.charAt(10)*1;
- 
-                if( (num%10)==0 ) {
-                   return true;
-                }
-                else {
-                   return false;
-                }
-             }
-             else {
-                return false;
-            }
-        },
-
-
-
-        tryAgain: function() {
-            location.reload();
-        },
-
-        totalSum: function (obj) {
-            r01Price = 0;
-            r02Price = 0;
-            r03Price = 0;
-
-            if(document.getElementById('r01').children.length > 0){
-                r01Price = Number(document.getElementById('r01').getElementsByClassName('money')[0].innerHTML);
-            }
-            if(document.getElementById('r02').children.length > 0){
-                r02Price = Number(document.getElementById('r02').getElementsByClassName('money')[0].innerHTML);
-            }
-            if(document.getElementById('r03').children.length > 0){
-                r03Price = Number(document.getElementById('r03').getElementsByClassName('money')[0].innerHTML);
-            }
-            total = r01Price + r02Price + r03Price;
-            vm.result_total = total;
-        },
-
-        moveObj: function (obj) {
-            c_r01 = $('#r01')[0];
-            c_r02 = $('#r02')[0];
-            c_r03 = $('#r03')[0];
-
-            c_name = obj.parentNode.getAttribute('class');
-            cart = $('li.product');
-
-            if(c_name == 'product'){
-                if(c_r01.children.length == 0){
-                    c_r01.appendChild(obj);
-                }else if(c_r02.children.length == 0){
-                    c_r02.appendChild(obj);
-                }else if(c_r03.children.length == 0){
-                    c_r03.appendChild(obj);
-                }
-            }else if(c_name == 'result-area'){
-
-                for(i=0; i<cart.length; i++){
-                    if(cart[i].children.length == 0){
-                        cart[i].appendChild(obj);
-                    }
-                }
-            }
-            vm.totalSum();
-            if(vm.result_total == 1688){
-                vm.success = "submit";
-            }else{
-                vm.success ="submit disabled";
-            }
-        },
-    },
-})
-
-
-</script>
-
-<!-- Drag and Drop -->
-<script>
-function allowDrop(ev){
-    ev.preventDefault();
-}
-
-function drag(ev){
-    if(ev.target.className == "prod_img"){
-        ev.dataTransfer.setData("text",ev.target.parentNode.parentNode.id);
-    }else{
-        ev.dataTransfer.setData("text",ev.target.id);
-    }
-}
-
-function drop(ev){
-    ev.preventDefault();
-    var data=ev.dataTransfer.getData("text");
-    // 檢查裏面是否已有物品
-    if(ev.target.nodeName == 'LI' && ev.target.children.length == 0){
-        ev.target.appendChild(document.getElementById(data));
-        vm.totalSum();
-        if(vm.result_total == 1688){
-            vm.success = "submit";
-        }else{
-            vm.success = "submit disabled";
-        }
-    }
-}
-</script>
-
-<!-- Timer -->
-<script type="text/javascript">
-    var c=0;
-    var t;
-    function timedCount(){
-        vm.timer = vm.timer+0.01;
-        t=setTimeout("timedCount()",10);
-    }
-
-    function stopCount(){
-        // 確認20秒內完成
-        if(vm.result_total == 1688){
-            setTimeout("document.getElementById('time_counter').innerHTML=vm.timer.toFixed(2)",0);
-            clearTimeout(t);
-            openLbox('#finish');
-            if(vm.timer < 20){
-                $("#finish .fail").hide();
-            }else{
-                $("#finish .success").hide();
-                $("#finish .fail").show();
-                $(".share").show();
-                $(".choose").hide();
-            }
-        }
-    }
-
-
-// TODO: 完成送參數出去
-</script>
-
-<!-- 手機/平板 touchstart event -->
-<script>
-
-    window.addEventListener('load', function(){ // on page load
-        el = $('li div.prod');
-        for(i=0; i<el.length ; i++){
-            el[i].addEventListener('touchend', function(e){
-                vm.moveObj(this);
-            }, false);
-        }
-    }, false)
-
-</script>
+<script src="js/script.securejs" type="text/javascript"></script>
 
 <script type="text/javascript">
 /* <![CDATA[ */
