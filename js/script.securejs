@@ -1,7 +1,7 @@
 // facebook sdk
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '163972337291190',
+      appId      : '551502991686024',
       xfbml      : true,
       version    : 'v2.8'
     });
@@ -105,8 +105,8 @@ var vm = new Vue({
             FB.ui({
                 method: 'share',
                 display: 'popup',
-                href: 'https://bank.sinopac.com/',
-                hashtag: '#Sinopac Rich Your Life',
+                href: 'http://dev.i8d.tw/sinopac_fun001/',
+                hashtag: '#SinopacRichYourLife',
                 quote: '永豐銀行邀你一起來完成購物快手任務，好康大獎等你拿！'
             }, function(response){});
         },
@@ -120,7 +120,35 @@ var vm = new Vue({
         confirmData: function(obj) {
             vm.twId = vm.twId.toUpperCase();
             if(vm.checkTwId(vm.twId)){
-                // TODO: 傳回伺服器
+                // s_spon: server response
+                s_spon=$.ajax({
+                    url: "http://10.11.34.106/funap/FunMember.ashx",
+// url: "http://104.155.222.63/sinopac_fun001/test.html",
+                    data: {proj:"fun001", ssn:vm.twId, capt:vm.recap},
+                    dataType: "jsonp",//指定以jsonp方式執行
+                    jsonpCallback: "sinopac",
+                    success: function(res){
+                        if(res == 0){
+                            alert("請輸入正確的身份證字號");
+                        }else if(res == 2){
+                            alert("驗證碼錯誤，請重新輸入");
+                        }else if(res == 3){
+                            alert("不明原因錯誤，系統即將回到首頁");
+                            window.location.replace("index.html");
+                        }else if(res == 1){
+                            alert("恭喜你，已完成登錄。");
+                            window.location.replace("index.html");
+                        }
+                    },
+                    error: function(){
+                        alert("不明原因錯誤，系統即將回到首頁");
+                        window.location.replace("index.html");
+                    }
+                });
+
+//                alert(s_spon);
+
+//                http://10.11.34.106/funap/FunMember.ashx?proj=fun001&ssn=C120020609&capt=
             }else{
                 alert('請輸入正確身份證號');
             }
