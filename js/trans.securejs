@@ -6,10 +6,10 @@ if (url.indexOf("?") != -1) {
     for (var i in ary){
         resu[ary[i].split("=")[0]] = ary[i].split("=")[1];
     }
-alert('aaaaa');
+
     s_spon=$.ajax({
-     //   url: "http://10.11.34.106/funap/FunMember.ashx",
-      url: "http://104.155.222.63/sinopac_fun001/test.html",
+        url: "http://10.11.34.106/funap/FBPost.ashx",
+//      url: "http://104.155.222.63/sinopac_fun001/test.html",
         data: resu,
         dataType: "jsonp",//指定以jsonp方式執行
         jsonpCallback: "sinopac",
