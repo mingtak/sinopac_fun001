@@ -224,12 +224,7 @@ var vm = new Vue({
                     c_r03.appendChild(obj);
                 }
             }else if(c_name == 'result-area'){
-
-                for(i=0; i<cart.length; i++){
-                    if(cart[i].children.length == 0){
-                        cart[i].appendChild(obj);
-                    }
-                }
+                document.getElementById('C_' + obj.getAttribute('id')).appendChild(obj);
             }
             vm.totalSum();
             if(vm.result_total == 1688){
@@ -243,6 +238,7 @@ var vm = new Vue({
 
 
 // Drag and Drop
+
 function allowDrop(ev){
     ev.preventDefault();
 }
@@ -254,6 +250,7 @@ function drag(ev){
         ev.dataTransfer.setData("text",ev.target.id);
     }
 }
+
 
 function drop(ev){
     ev.preventDefault();

@@ -42,7 +42,6 @@ fbq('track', 'Purchase', {value: '0.00', currency:'TWD'});</script>
 src="https://www.facebook.com/tr?id=226106521124380&ev=PageView&noscript=1"
 /></noscript>
 <!-- End Facebook Pixel Code -->
-
   </head>
   <body>
 <div id="fun001-main">
@@ -75,9 +74,11 @@ src="https://www.facebook.com/tr?id=226106521124380&ev=PageView&noscript=1"
                   <li class="product"
                       ondrop="drop(event)"
                       ondragover="allowDrop(event)"
-                      v-for="item in items[randInt]">
+                      v-for="item in items[randInt]"
+                      v-bind:id="'C_' + item.pid">
 
-                      <div v-bind:id="item.pid" draggable="true" ondragstart="drag(event)" class="prod">
+                      <div v-bind:id="item.pid" draggable="false" ondragstart="drag(event)" class="prod"
+                           v-on:click="moveObj(document.getElementById(item.pid))">
                           <div class="item">
                               <img v-bind:src="item.src" v-bind:alt="item.t1 + item.t2" class="prod_img">
                           </div>
@@ -159,7 +160,7 @@ src="https://www.facebook.com/tr?id=226106521124380&ev=PageView&noscript=1"
             <div class="desc1">
               <p class="sec-result"><span id="counter"></span> {{ timer.toFixed(2) }} 秒</p>
               <div class="btn-block inline">
-                <a id="try-again" class="try-again close" href="#"  v-on:click="tryAgain">再玩一次</a>
+                <a id="try-again" class="try-again close" href="#" v-on:click="tryAgain">再玩一次</a>
               </div>
             </div>
             <div class="desc2">
@@ -206,7 +207,6 @@ src="https://www.facebook.com/tr?id=226106521124380&ev=PageView&noscript=1"
   </div>
 
 <script src="js/script.securejs" type="text/javascript"></script>
-
 <script type="text/javascript">
 /* <![CDATA[ */
 var google_conversion_id = 876858061;
@@ -241,7 +241,7 @@ var google_remarketing_only = false;
 </noscript>
 <noscript>
 <div style="display:inline;">
-<img height="1" width="1" style="border-style:none;" alt="" src="//www.googleadservices.com/pagead/conversion/876858061/?value=3000.00&currency_code=TWD&label=RANBCPSK6mgQzZWPogM&guid=ON&script=0"/>
+<img height="1" width="1" style="border-style:none; display:none" alt="" src="//www.googleadservices.com/pagead/conversion/876858061/?value=3000.00&currency_code=TWD&label=RANBCPSK6mgQzZWPogM&guid=ON&script=0"/>
 </div>
 </noscript>
   </body>
