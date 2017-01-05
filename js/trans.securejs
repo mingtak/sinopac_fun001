@@ -1,0 +1,30 @@
+var url = window.location.toString();
+var resu = {proj:"fun001"};
+
+if (url.indexOf("?") != -1) {
+    var ary = url.split("?")[1].split("&");
+    for (var i in ary){
+        resu[ary[i].split("=")[0]] = ary[i].split("=")[1];
+    }
+alert('aaaaa');
+    s_spon=$.ajax({
+     //   url: "http://10.11.34.106/funap/FunMember.ashx",
+      url: "http://104.155.222.63/sinopac_fun001/test.html",
+        data: resu,
+        dataType: "jsonp",//指定以jsonp方式執行
+        jsonpCallback: "sinopac",
+        success: function(res){
+            if(res == 0){
+                document.getElementById("result").innerHTML = "0";
+            }else if(res == 2){
+                document.getElementById("result").innerHTML = "2";
+            }else if(res == 1){
+                document.getElementById("result").innerHTML = "1";
+            }
+        },
+        error: function(){
+            document.getElementById("result").innerHTML = "0";
+        }
+    });
+
+}
