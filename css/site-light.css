@@ -166,7 +166,7 @@ footer .copyright a { color: #ededed; margin-left: 48px; }
 .lboxed .finish .desc-block .already-a-member::before { content: ""; display: inline-block; background: url(../images/checkup.png) no-repeat center center; background-size: 100% 100%; width: 2vw; max-width: 20px; height: 2vw; max-height: 20px; position: relative; top: -0.2vw; margin-right: 0.5vw; vertical-align: middle; }
 .lboxed .finish .desc-block .id-code, .lboxed .finish .desc-block .txt-captcha { padding: 0.7vw 1.2vw; font-size: 1.3vw; margin-bottom: 0.8vw; box-sizing: border-box; border: 1px solid black; }
 .lboxed .finish .desc-block .id-code { width: 100%; }
-.lboxed .finish .desc-block .txt-captcha { display: inline-block; vertical-align: top; width: 140px; max-width: 14vw; float: left; }
+.lboxed .finish .desc-block .txt-captcha { display: inline-block; vertical-align: top; width: 14vw; max-width: 140px; float: left; }
 .lboxed .finish .desc-block .captcha-block { white-space: nowrap; }
 .lboxed .finish .desc-block .captcha-block::after { content: ""; display: block; clear: both; }
 .lboxed .finish .desc-block .captcha { float: right; vertical-align: top; width: 9.1vw; max-width: 91px; white-space: initial; }
@@ -237,13 +237,30 @@ i.reset { display: inline-block; width: 2.8vw; max-width: 28px; height: 2.8vw; m
   .lboxed .finish .desc-block .captcha .recaptcha { font-size: 13px; }
   .lboxed .finish .desc-block .submit-data { margin: 15px auto 10px; }
   .lboxed .finish .sec-result { padding-right: 15px; font-size: 60px; } }
-@media (max-width: 640px) { .mobile-menu { display: block; }
-  .mobile-menu header .header-top { -moz-box-shadow: inset -15px 0px 40px -35px black; -webkit-box-shadow: inset -15px 0px 40px -35px black; box-shadow: inset -15px 0px 40px -35px black; }
-  header .left-pane { margin-left: 52px; }
+@media (max-width: 640px) { header .left-pane { margin-left: 52px; }
   .mobile-menu header .left-pane { margin-left: 0; }
   header .left-pane .header-title { top: 19px; font-size: 17px; padding-left: 10px; }
   header .left-pane .logo a { width: 135px; height: 54px; }
-  header .container { padding-top: 0; } }
+  header .container { padding-top: 0; }
+  .try-again { display: block; width: 9.375vw; max-width: none; height: 9.375vw; max-height: none; font-size: 0; }
+  .already, .signup { font-size: 0; vertical-align: top; margin: 0 1.5625vw; width: 26.25vw; max-width: none; height: 18.59375vw; max-height: none; }
+  .note2 { font-size: 2.8125vw; }
+  .share2fb, .rightnow { width: 76.5625vw; max-width: none; height: 9.375vw; max-height: none; }
+  .lboxed .finish .sec-result { display: block; line-height: 1.7; }
+  .lboxed .finish .btn-block.inline { display: block; }
+  .lboxed .finish .desc-block .desc1 { display: -webkit-box; display: -moz-box; display: -ms-flexbox; display: -webkit-flex; display: flex; -webkit-justify-content: center; justify-content: center; }
+  .lboxed .finish .desc-block .desc2 { font-size: 3.75vw; }
+  .lboxed .finish .desc-block .leave li { width: 68.75vw; max-width: none; }
+  .lboxed .finish .desc-block .already-a-member { margin: 1.25vw 0; font-size: 2.03125vw; }
+  .lboxed .finish .desc-block .already-a-member::before { width: 3.125vw; max-width: none; height: 3.125vw; max-height: none; top: -0.3125vw; margin-right: 0.78125vw; }
+  .lboxed .finish .desc-block .id-code, .lboxed .finish .desc-block .txt-captcha { padding: 1.09375vw 1.875vw; font-size: 2.34375vw; margin-bottom: 1.25vw; box-sizing: border-box; border: 1px solid black; }
+  .lboxed .finish .desc-block .txt-captcha { width: 35.9375vw; }
+  .lboxed .finish .desc-block .captcha { width: 28.4375vw; max-width: none; }
+  .lboxed .finish .desc-block .captcha img { width: 100%; }
+  .lboxed .finish .desc-block .captcha .recaptcha { font-size: 3.75vw; }
+  .lboxed .finish .desc-block .captcha .recaptcha::before { width: 3.90625vw; height: 3.59375vw; max-width: none; max-height: none; }
+  .lboxed .finish .desc-block .submit-data { width: 17.34375vw; max-width: none; height: 6.875vw; max-height: none; margin: 2.34375vw auto 1.5625vw; }
+  .lboxed .finish .notice { font-size: 2.5vw; } }
 /* visible, hidden rwd */
 .center-block { display: block; margin-right: auto; margin-left: auto; }
 
