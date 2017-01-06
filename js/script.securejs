@@ -116,7 +116,7 @@ var vm = new Vue({
 
         // 重新產生驗證碼
         reload_captcha: function() {
-            $('#captcha-img img').attr('src', capt_url);
+            $('#captcha-img img').attr('src', capt_url + '?t=' + new Date().getMilliseconds());
         },
 
         // 檢查身份證
@@ -125,7 +125,7 @@ var vm = new Vue({
             if(vm.checkTwId(vm.twId)){
                 // s_spon: server response
                 s_spon=$.ajax({
-                    url: funMmeber_url,
+                    url: funMember_url,
 // url: "http://104.155.222.63/sinopac_fun001_bak/test.html",
                     data: {proj:"fun001", ssn:vm.twId, capt:vm.recap},
                     type: "get",
@@ -139,6 +139,9 @@ var vm = new Vue({
                             alert("驗證碼錯誤，請重新輸入");
                         }else if(res == 3){
                             alert("不明原因錯誤，系統即將回到首頁");
+                            window.location.replace("index.html");
+                        }else if(res == 4){
+                            alert("此身份證已參加過遊戲");
                             window.location.replace("index.html");
                         }else if(res == 1){
                             alert("恭喜你，已完成登錄。");
