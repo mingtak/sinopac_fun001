@@ -1,5 +1,5 @@
-var funMember_url = "http://10.11.34.106/funap/FunMember.ashx";
-var capt_url = "http://10.11.34.106/funap/CaptchaImage.ashx";
+var funMember_url = "https://bank.sinopac.com/funap/FunMember.ashx";
+var capt_url = "https://bank.sinopac.com/funap/CaptchaImage.ashx";
 
 // facebook sdk
   window.fbAsyncInit = function() {

@@ -1,4 +1,4 @@
-var fbPost_url = "http://10.11.34.106/funap/FBPost.ashx";
+var fbPost_url = "https://bank.sinopac.com/funap/FBPost.ashx";
 
 var url = window.location.toString();
 var resu = {proj:"fun001"};
