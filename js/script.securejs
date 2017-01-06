@@ -145,7 +145,18 @@ var vm = new Vue({
                             window.location.replace("index.html");
                         }else if(res == 1){
                             alert("恭喜你，已完成登錄。");
-                            window.location.replace("index.html");
+                            $("#finish .fail").hide();
+                            $("#finish .fail").show();
+                            $('p.fail').hide();
+                            $('p.already-a-member').hide();
+                            $('p.success.deepred.note.finishhide').hide();
+                            $('li.captcha-block').hide();
+                            $('input.id-code').hide();
+                            $('#submit-data').hide();
+                            $('p.deepred.note.finishshow').show();
+                            $(".share").show();
+                            $(".choose").hide();
+//                            window.location.replace("index.html");
                         }
                     },
                     error: function(){
