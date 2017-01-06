@@ -1,3 +1,6 @@
+var funMember_url = "http://10.11.34.106/funap/FunMember.ashx";
+var capt_url = "http://10.11.34.106/funap/CaptchaImage.ashx";
+
 // facebook sdk
   window.fbAsyncInit = function() {
     FB.init({
@@ -113,7 +116,7 @@ var vm = new Vue({
 
         // 重新產生驗證碼
         reload_captcha: function() {
-            $('#captcha-img img').attr('src', 'http://10.11.34.106/funap/CaptchaImage.ashx');
+            $('#captcha-img img').attr('src', capt_url);
         },
 
         // 檢查身份證
@@ -122,12 +125,14 @@ var vm = new Vue({
             if(vm.checkTwId(vm.twId)){
                 // s_spon: server response
                 s_spon=$.ajax({
-                    url: "http://10.11.34.106/funap/FunMember.ashx",
-// url: "http://104.155.222.63/sinopac_fun001/test.html",
+                    url: funMmeber_url,
+// url: "http://104.155.222.63/sinopac_fun001_bak/test.html",
                     data: {proj:"fun001", ssn:vm.twId, capt:vm.recap},
-                    dataType: "jsonp",//指定以jsonp方式執行
-                    jsonpCallback: "sinopac",
+                    type: "get",
+//                    dataType: "jsonp",//指定以jsonp方式執行
+//                    jsonpCallback: "sinopac",
                     success: function(res){
+//alert(res);
                         if(res == 0){
                             alert("請輸入正確的身份證字號");
                         }else if(res == 2){
