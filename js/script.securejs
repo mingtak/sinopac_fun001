@@ -1,6 +1,6 @@
 var funMember_url = "https://bank.sinopac.com/funap/FunMember.ashx";
 var capt_url = "https://bank.sinopac.com/funap/CaptchaImage.ashx";
-var fb_share_url = 'http://dev.i8d.tw/sinopac_fun001/';
+var fb_share_url = 'https://bank.sinopac.com/bsp/web15/fun/game/spg-chef/index.html';
 // facebook sdk
   window.fbAsyncInit = function() {
     FB.init({
