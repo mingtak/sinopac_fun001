@@ -4,7 +4,7 @@ var fb_share_url = 'https://bank.sinopac.com/bsp/web15/fun/game/spg-chef/index.h
 // facebook sdk
   window.fbAsyncInit = function() {
     FB.init({
-      appId      : '551502991686024',
+      appId      : '163972337291190',
       xfbml      : true,
       version    : 'v2.8'
     });
