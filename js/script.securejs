@@ -1,6 +1,6 @@
 var funMember_url = "https://bank.sinopac.com/funap/FunMember.ashx";
 var capt_url = "https://bank.sinopac.com/funap/CaptchaImage.ashx";
-
+var fb_share_url = 'http://dev.i8d.tw/sinopac_fun001/';
 // facebook sdk
   window.fbAsyncInit = function() {
     FB.init({
@@ -27,7 +27,7 @@ var vm = new Vue({
 // 商品start
         items: [
            [
-{ pid:'P_01', t1:'普魯軾', t2:'經典歐式德國豬腳', money:640, src:'images/stuffs/經典歐式德國豬腳.png' },
+{ pid:'P_01', t1:'普魯軾', t2:'德國豬腳', money:640, src:'images/stuffs/經典歐式德國豬腳.png' },
 { pid:'P_02', t1:'大連', t2:'廣式臘腸', money:320, src:'images/stuffs/廣式臘腸.png' },
 { pid:'P_03', t1:'逸湘齋', t2:'佛跳牆', money:498, src:'images/stuffs/佛跳牆.png' },
 { pid:'P_04', t1:'老林記', t2:'素茶鵝', money:100, src:'images/stuffs/素茶鵝.png' },
@@ -40,12 +40,12 @@ var vm = new Vue({
           ],
           [
 { pid:'P_01', t1:'萬有全', t2:'富貴雙方', money:240, src:'images/stuffs/富貴雙方.png' },
-{ pid:'P_02', t1:'台灣好漁', t2:'挪威薄鹽鯖魚片', money:900, src:'images/stuffs/挪威薄鹽鯖魚片.png' },
+{ pid:'P_02', t1:'台灣好漁', t2:'挪威鯖魚片', money:900, src:'images/stuffs/挪威薄鹽鯖魚片.png' },
 { pid:'P_03', t1:'得意', t2:'得意廚紙', money:500, src:'images/stuffs/得意廚紙.png' },
 { pid:'P_04', t1:'永豐餘生技', t2:'油蒜', money:150, src:'images/stuffs/油蒜.png' },
-{ pid:'P_05', t1:'普魯軾', t2:'經典歐式德國豬腳', money:640, src:'images/stuffs/經典歐式德國豬腳.png' },
-{ pid:'P_06', t1:'永豐餘生技', t2:'台灣正黑豬小排', money:240, src:'images/stuffs/台灣正黑豬小排.png' },
-{ pid:'P_07', t1:'永豐餘生技', t2:'有機原豆醬油', money:250, src:'images/stuffs/有機原豆醬油.png' },
+{ pid:'P_05', t1:'普魯軾', t2:'德國豬腳', money:640, src:'images/stuffs/經典歐式德國豬腳.png' },
+{ pid:'P_06', t1:'永豐餘生技', t2:'黑豬小排', money:240, src:'images/stuffs/台灣正黑豬小排.png' },
+{ pid:'P_07', t1:'永豐餘生技', t2:'有機醬油', money:250, src:'images/stuffs/有機原豆醬油.png' },
 { pid:'P_08', t1:'合興', t2:'港式蘿蔔糕', money:200, src:'images/stuffs/港式蘿蔔糕.png' },
 { pid:'P_09', t1:'永豐餘生技', t2:'麵線', money:288, src:'images/stuffs/麵線.png' },
 { pid:'P_10', t1:'大連', t2:'廣式臘腸', money:320, src:'images/stuffs/廣式臘腸.png' },
@@ -54,16 +54,16 @@ var vm = new Vue({
 { pid:'P_01', t1:'永豐餘生技', t2:'油蔥', money:155, src:'images/stuffs/油蔥.png' },
 { pid:'P_02', t1:'玉尚園', t2:'芒果乾', money:240, src:'images/stuffs/芒果乾.png' },
 { pid:'P_03', t1:'萬有全', t2:'富貴雙方', money:240, src:'images/stuffs/富貴雙方.png' },
-{ pid:'P_04', t1:'永豐餘生技', t2:'有機黑豆蔭油禮盒', money:688, src:'images/stuffs/有機黑豆蔭油禮盒.png' },
-{ pid:'P_05', t1:'永豐餘生技', t2:'台灣正黑豬小排', money:240, src:'images/stuffs/台灣正黑豬小排.png' },
+{ pid:'P_04', t1:'永豐餘生技', t2:'黑豆蔭油', money:688, src:'images/stuffs/有機黑豆蔭油禮盒.png' },
+{ pid:'P_05', t1:'永豐餘生技', t2:'黑豬小排', money:240, src:'images/stuffs/台灣正黑豬小排.png' },
 { pid:'P_06', t1:'老林記', t2:'素茶鵝', money:150, src:'images/stuffs/素茶鵝.png' },
 { pid:'P_07', t1:'隆記', t2:'甘蔗燻雞', money:850, src:'images/stuffs/甘蔗燻雞.png' },
 { pid:'P_08', t1:'永豐餘生技', t2:'沙茶醬', money:155, src:'images/stuffs/沙茶醬.png' },
-{ pid:'P_09', t1:'普魯軾', t2:'經典歐式德國豬腳', money:450, src:'images/stuffs/經典歐式德國豬腳.png' },
+{ pid:'P_09', t1:'普魯軾', t2:'德國豬腳', money:450, src:'images/stuffs/經典歐式德國豬腳.png' },
 { pid:'P_10', t1:'永豐餘生技', t2:'寬麵', money:85, src:'images/stuffs/寬麵.png' },
           ],          
           [
-{ pid:'P_01', t1:'永豐餘生技', t2:'有機黑豆蔭油膏', money:300, src:'images/stuffs/有機黑豆蔭油膏.png' },
+{ pid:'P_01', t1:'永豐餘生技', t2:'有機蔭油膏', money:300, src:'images/stuffs/有機黑豆蔭油膏.png' },
 { pid:'P_02', t1:'合興', t2:'港式蘿蔔糕', money:290, src:'images/stuffs/港式蘿蔔糕.png' },
 { pid:'P_03', t1:'永豐餘生技', t2:'沙茶醬', money:150, src:'images/stuffs/沙茶醬.png' },
 { pid:'P_04', t1:'永豐餘生技', t2:'寬麵', money:85, src:'images/stuffs/寬麵.png' },
@@ -71,19 +71,19 @@ var vm = new Vue({
 { pid:'P_06', t1:'台灣好漁', t2:'七星鱸魚片', money:1520, src:'images/stuffs/七星鱸魚片.png' },
 { pid:'P_07', t1:'逸湘齋', t2:'佛跳牆', money:490, src:'images/stuffs/佛跳牆.png' },
 { pid:'P_08', t1:'玉尚園', t2:'芒果乾', money:240, src:'images/stuffs/芒果乾.png' },
-{ pid:'P_09', t1:'永豐餘生技', t2:'台灣正黑豬肉絲', money:800, src:'images/stuffs/台灣正黑豬肉絲.png' },
+{ pid:'P_09', t1:'永豐餘生技', t2:'黑豬肉絲', money:800, src:'images/stuffs/台灣正黑豬肉絲.png' },
 { pid:'P_10', t1:'南門牛羊肉店', t2:'羊肉爐', money:550, src:'images/stuffs/羊肉爐.png' },
           ],
           [
 { pid:'P_01', t1:'南門點心坊', t2:'紫米八寶飯', money:258, src:'images/stuffs/紫米八寶飯.png' },
-{ pid:'P_02', t1:'台灣好漁', t2:'挪威薄鹽鯖魚片', money:900, src:'images/stuffs/挪威薄鹽鯖魚片.png' },
+{ pid:'P_02', t1:'台灣好漁', t2:'挪威鯖魚片', money:900, src:'images/stuffs/挪威薄鹽鯖魚片.png' },
 { pid:'P_03', t1:'老林記', t2:'素茶鵝', money:100, src:'images/stuffs/素茶鵝.png' },
-{ pid:'P_04', t1:'永豐餘生技', t2:'台灣正黑豬肉絲', money:90, src:'images/stuffs/台灣正黑豬肉絲.png' },
+{ pid:'P_04', t1:'永豐餘生技', t2:'黑豬肉絲', money:90, src:'images/stuffs/台灣正黑豬肉絲.png' },
 { pid:'P_05', t1:'台灣好漁', t2:'七星鱸魚片', money:1520, src:'images/stuffs/七星鱸魚片.png' },
 { pid:'P_06', t1:'隆記', t2:'甘蔗燻雞', money:850, src:'images/stuffs/甘蔗燻雞.png' },
 { pid:'P_07', t1:'永豐餘生技', t2:'麵線', money:85, src:'images/stuffs/麵線.png' },
 { pid:'P_08', t1:'永豐餘生技', t2:'油蔥', money:550, src:'images/stuffs/油蔥.png' },
-{ pid:'P_09', t1:'永豐餘生技', t2:'有機黑豆蔭油禮盒', money:600, src:'images/stuffs/有機黑豆蔭油禮盒.png' },
+{ pid:'P_09', t1:'永豐餘生技', t2:'黑豆蔭油', money:600, src:'images/stuffs/有機黑豆蔭油禮盒.png' },
 { pid:'P_10', t1:'大連', t2:'廣式臘腸', money:880, src:'images/stuffs/廣式臘腸.png' },
           ],
         ],
@@ -108,9 +108,9 @@ var vm = new Vue({
             FB.ui({
                 method: 'share',
                 display: 'popup',
-                href: 'http://dev.i8d.tw/sinopac_fun001/',
-                hashtag: '#SinopacRichYourLife',
-                quote: '永豐銀行邀你一起來完成購物快手任務，好康大獎等你拿！'
+                href: fb_share_url,
+                hashtag: 'FuncashierChef',
+                quote: '【添菜大廚跟你一起做好菜】'
             }, function(response){});
         },
 
