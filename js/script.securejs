@@ -109,7 +109,7 @@ var vm = new Vue({
                 method: 'share',
                 display: 'popup',
                 href: fb_share_url,
-                hashtag: 'FuncashierChef',
+                hashtag: '#FuncashierChef',
                 quote: '【添菜大廚跟你一起做好菜】'
             }, function(response){});
         },
