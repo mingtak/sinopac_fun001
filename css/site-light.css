@@ -68,9 +68,12 @@ textarea.artfld.limit { max-width: 620px; max-height: 200px; }
 .artfld.select select:disabled { color: #aaa; background: #f5f5f5; border-color: #ddd; -moz-box-shadow: inset 2px 2px 2px 0 rgba(0, 0, 0, 0.15); -webkit-box-shadow: inset 2px 2px 2px 0 rgba(0, 0, 0, 0.15); box-shadow: inset 2px 2px 2px 0 rgba(0, 0, 0, 0.15); }
 .artfld.select + .artfld.select { margin-left: 0.7vw; }
 
-@media (max-width: 640px) { .artfld.select::before { right: 3.75vw; margin-top: -2.1875vw; width: 2.1875vw; height: 2.1875vw; border: 0.78125vw solid #666; border-top: 0; border-right: 0; }
+@media (max-width: 640px) { .artfld.select::before { right: 3.75vw; margin-top: -2.1875vw; width: 2.1875vw; height: 2.1875vw; border: 0.78125vw solid #666; border-top: 0; border-right: 0;}
   .artfld.select select { padding-left: 3.6vw; padding-right: 10.2vw; }
-  .artfld.select + .artfld.select { margin-left: 1.09375vw; } }
+  .artfld.select + .artfld.select { margin-left: 1.09375vw; }
+  .products li .sign .t2 { font-size:1.2vw !important;}
+  .products li .sign .t1 { font-size:1.4vw !important;}
+}
 @media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) { .artfld.select select { padding-top: .5vw; padding-bottom: .5vw; } }
 header { background: #FFFFFF; position: relative; top: 0; z-index: 1000; width: 100%; }
 header .container { padding-top: 15px; }
